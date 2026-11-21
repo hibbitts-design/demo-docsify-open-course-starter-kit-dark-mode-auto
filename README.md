@@ -7,13 +7,13 @@
     <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Docsify Discord Chat" />
 </a>
 
-> This is a starter kit to quickly create a Markdown-based open course site with the site generator [Docsify](https://docsify.js.org). Global navigation elements can be hidden for seamlessly embedding pages (i.e., into an LMS). Includes an optional "Edit this Page" link.
+> This is a starter kit to quickly create a Markdown-based open course site with the site generator [Docsify](https://docsify.js.org) (v5 Preview). Global navigation elements can be hidden for seamlessly embedding pages (i.e., into an LMS). Includes an optional "Edit this Page" link.
 
 Docsify sites use client-side rendering, which means your content will not be indexed by search engines like Google, Bing, or DuckDuckGo.
 
 📸 Docsify Open Course Screenshots
 ---
-![ Docsify Open Course Starter Kit](https://raw.githubusercontent.com/paulhibbitts/github-repo-images/master/smartmockups_kud8xtd3.png)
+![ Docsify Open Course Starter Kit](https://raw.githubusercontent.com/paulhibbitts/github-repo-images/master/smartmockups_lzlzwwuj.png)
 _Figure 1. Docsify Open Course Starter Kit. Explore a demo at [hibbitts-design.github.io/demo-docsify-open-course-starter-kit/](https://hibbitts-design.github.io/demo-docsify-open-course-starter-kit/#/)_
 
 🚀 GitHub Pages Quickstart
@@ -170,6 +170,13 @@ Please note a page must have a series of Headings (#, ##, ###) for the Table of 
 3. Locate the line `name: 'Docsify Open Course Starter Kit',` and change the text between the quotes to be displayed as the site name at the top of the Docsify Sidebar
 4. Save the `index.html` file and reload site.
 
+🎨 Sidebar Icons
+---
+
+Sidebar icons are loaded from [Iconify](https://iconify.design/), so their color can be changed by editing the `color` value in each icon URL within `_sidebar.md` (e.g. `color=%23808080`, where `%23` is the `#` character).
+
+Local copies of the default icons are also included in the `docs/assets/icons` folder as a backup, such as when Iconify is unavailable or the site needs to work offline. To use them, replace an icon URL with its local path, e.g. `assets/icons/calendar.svg`.
+
 ⚠️ Troubleshooting
 ---
 _Site not displaying on GitHub Pages_  
@@ -195,10 +202,6 @@ For example, here is a [Docsify Open Course Site hosted within a Canvas course](
 **Docsify**  
 [Docsify Documentation](https://docsify.js.org/#/?id=docsifyg)  
 [Docsify Basics by MichaelCurrin](https://michaelcurrin.github.io/docsify-js-tutorial/#/?id=docsify-basics)  
-
-**Docsify Themable**  
-[Docsify Themeable Documentation](https://jhildenbiddle.github.io/docsify-themeable/#/introduction)  
-[Docsify Themeable GitHub](https://github.com/jhildenbiddle/docsify-themeable)  
 
 **Markdown**  
 [Markdown Here Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)  
@@ -254,6 +257,36 @@ function test() {
 </details>
 
 </div>
+```
+
+`announcement`  
+When the Docsify v5 theme is enabled, to style Blockquotes similarly to the default Docsify-This style.  
+
+```html
+<blockquote class="announcement">
+  <h2>What’s Happening This Week</h2>
+  <h3>How to explore the problem space?</h3>
+  <h4>Important Reminders</h4>
+  <ul>
+    <li><a href="#">Journey Map</a> assignment <span class='badge'> Tue Jun 12th 11:59pm PDT</span></li>
+    <li><a href="#">Course Reflection Log</a> assignment <span class='badge'> Fri Aug 3rd 11:59pm PDT</span></li>
+  </ul>
+
+  <h4>Required Reading</h4>
+  <ul>
+    <li>
+      <a href="https://www.smashingmagazine.com/2014/10/the-skeptics-guide-to-low-fidelity-prototyping/">
+        The Skeptic’s Guide To Low-Fidelity Prototyping
+      </a>
+    </li>
+  </ul>
+
+  <p>
+    <a href="https://canvas.sfu.ca/courses/44038/quizzes/166553" class="button primary">
+      Required Reading Quiz due Jun 4th
+    </a>
+  </p>
+</blockquote>
 ```
 
 `badge`  
@@ -353,6 +386,84 @@ function test() {
 </div>
 ```
 
+`card-list-guides` / `card-list-courses` / `card-list-sections` (three cards in a row, for a list of guides, a list of courses or a guide's sections; for just two cards, use `card-list`)
+
+```html
+<div class="card-list-guides">
+ <div class="card">
+
+ ![First Guide](images/example.jpg)
+
+ ## [First Guide](#)
+
+ A short guide to getting started.
+
+ </div>
+ <div class="card">
+
+ ![Second Guide](images/example.jpg)
+
+ ## [Second Guide](#)
+
+ Another guide.
+
+ </div>
+ <div class="card">
+
+ ![Third Guide](images/example.jpg)
+
+ ## [Third Guide](#)
+
+ One more guide.
+
+ </div>
+</div>
+```
+
+`card-list-rows` (one card per row, for cards without images, such as a guide's sections)
+
+```html
+<div class="card-list-rows">
+ <div class="card">
+
+ ## [First Section](#)
+
+ A short description of this section.
+
+ </div>
+ <div class="card">
+
+ ## [Second Section](#)
+
+ </div>
+</div>
+```
+
+`card-lines-2` / `card-lines-3` (add to any card list to trim each card's text to two or three lines)
+
+```html
+<div class="card-list card-lines-2">
+ <div class="card">
+
+ ![First Guide](images/example.jpg)
+
+ ## [First Guide](#)
+
+ A short guide to getting started.
+
+ </div>
+ <div class="card">
+
+ ![Second Guide](images/example.jpg)
+
+ ## [Second Guide](#)
+
+ A longer description, trimmed to two lines so the cards stay a similar size.
+
+ </div>
+</div>
+```
+
 `card-rounded`
 
 ```html
@@ -368,7 +479,7 @@ function test() {
 `embedly-card` (for linked article previews, embedded slides/videos, etc.)  
 
 ```markdown
-<a class="embedly-card" data-card-controls="0" data-card-align="left" href="https://blog.prototypr.io/defining-usability-e7bf42e8abd0">Defining usability</a>
+<a class="embedly-card" data-card-theme="light" data-card-controls="0" data-card-align="left" href="https://blog.prototypr.io/defining-usability-e7bf42e8abd0">Defining usability</a>
 ```
 
 `header-image-fade` (suggested width of 1200px to 2000px)  
@@ -563,7 +674,7 @@ Markdown:
 [Required Reading Quiz due Jun 4th](https://canvas.sfu.ca/courses/44038/quizzes/166553 ':class=mybutton')
 ```
 
-[Docsify Themeable CSS settings](https://jhildenbiddle.github.io/docsify-themeable/#/customization?id=base) can also be configured, as seen in the examples provided in the default `custom.css` file.
+Docsify theme settings can also be configured, as seen in the examples provided in the default `custom.css` file.
 
 CSS:  
 ```css
@@ -603,4 +714,4 @@ _Video 1. Generating Documentation Sites with GitHub and Docsify - Alysson Alvar
 
 🙇‍Credits and Special Thanks
 ---
-[Docsify Themeable](https://github.com/jhildenbiddle/docsify-themeable)   
+All past and current Docsify.js.org maintainers and contributors.
